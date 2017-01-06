@@ -21,10 +21,29 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.summary = "Firebase wrapper for Ruby"
 
-  s.add_runtime_dependency 'httpclient'
-  s.add_runtime_dependency 'json'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rdoc'
-  s.add_development_dependency 'rspec'
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<httpclient>, [">= 0"])
+      s.add_runtime_dependency(%q<googleauth>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<rdoc>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+    else
+      s.add_dependency(%q<httpclient>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<rdoc>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<httpclient>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<rdoc>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+  end
 end
 
